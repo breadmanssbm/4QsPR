@@ -11,6 +11,6 @@ This Balatro mod adds 16 new Jokers representing each of the players on the Wint
 [Steamodded](https://github.com/Steamopollys/Steamodded) - mod loader
 ## How to install
 1. Install [Steamodded](https://github.com/Steamopollys/Steamodded)
-1. Download the source code of this mod
+1. Download the latest release of this mod on the right hand side
 3. Copy the folder to your MOD directory, usually "C:\Users\<USER>\AppData\Roaming\Balatro\Mods". It is created by [Steamodded](https://github.com/Steamopollys/Steamodded).
 4. Enable the Mod by selecting it from the Main Menu > Mods
