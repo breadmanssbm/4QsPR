@@ -506,22 +506,31 @@ SMODS.Joker {
     config = {},
     calculate = function(self, card, context)
         if context.joker_main then
-            local marths = {}
-            --Need to update this to add the other marths when done
+            local marths = false
+            --Right now this only copies Gus because he adds flat mult. I will figure out the other two in due course...
+            --It is too late on Saturday night for me to code this well
             for i = 1, #G.jokers.cards do
-                if
-                    G.jokers.cards[i].config.center.key == "Gus" or G.jokers.cards[i].config.center.key == "Tanki" or
-                        G.jokers.cards[i].config.center.key == "Bran"
-                 then
-                    table.insert(marths, G.jokers.cards[i])
-                    print("Added to table")
-                    break
+                if G.jokers.cards[i].config.center.key == "j_4QsPR_Gus" then
+                    marths = true
                 else
                     print("Skipped Joker " .. G.jokers.cards[i].config.center.key)
                 end
             end
-            local marth_ret = marths[1]:calculate_joker(context)
-            return marth_ret
+            if marths == true then
+                return {
+                    mult_mod = c15,
+                    message = localize {type = "variable", key = "a_mult", vars = {15}},
+                    sound = "4QsPR_Marth_Counter",
+                    pitch = 1
+                }
+            else
+                return {
+                    mult_mod = 1,
+                    message = localize {type = "variable", key = "a_mult", vars = {1}},
+                    sound = "4QsPR_Marth_Counter",
+                    pitch = 1
+                }
+            end
         end
     end
 }
