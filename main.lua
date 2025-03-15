@@ -1,8 +1,8 @@
 --- STEAMODDED HEADER
---- MOD_NAME: 4Qs PR
+--- MOD_NAME: 4Qs PR v1.0
 --- MOD_ID: 4QsBalatroPR
 --- MOD_AUTHOR: [breadman]
---- MOD_DESCRIPTION: 4Qs Winter PR 2024
+--- MOD_DESCRIPTION: 4Qs Winter PR 2024 v1.0
 --- PREFIX: 4QsPR
 --------------------------------------------
 -------------------MOD CODE-----------------
@@ -495,7 +495,7 @@ SMODS.Joker {
         name = "11: AC (Marth)",
         text = {
             "{C:attention}The Marthfather:",
-            "Copies the abilities of all {C:purple}Marth{} Jokers"
+            "Copies the abilities of the leftmost {C:purple}Marth{} Joker"
         }
     },
     atlas = "AC",
@@ -509,9 +509,13 @@ SMODS.Joker {
             local marths = {}
             --Need to update this to add the other marths when done
             for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i].config.center.key == "Gus" then
+                if
+                    G.jokers.cards[i].config.center.key == "Gus" or G.jokers.cards[i].config.center.key == "Tanki" or
+                        G.jokers.cards[i].config.center.key == "Bran"
+                 then
                     table.insert(marths, G.jokers.cards[i])
                     print("Added to table")
+                    break
                 else
                     print("Skipped Joker " .. G.jokers.cards[i].config.center.key)
                 end
